@@ -8,7 +8,14 @@
   },
   "license": "MIT",
   "main": "./src/index.js",
-  "exports": "./src/index.js",
+  "exports": {
+    "./clamp": "./src/clamp.js",
+    "./get-half-ranges": "./src/get-half-ranges.js",
+    "./contains": "./src/contains.js",
+    "./make-reals-finite": "./src/make-reals-finite.js",
+    "./get-midpoint": "./src/get-midpoint.js",
+    "./get-random": "./src/get-random.js"
+  },
   "scripts": {
     "test": "npx -p @kmamal/testing testing",
     "update-exports": "node ./scripts/update-exports.mjs"
