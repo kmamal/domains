@@ -1,9 +1,9 @@
 const { clamp: clampNumber } = require('@kmamal/util/number/clamp')
 
-const clampSingle = ({ type, from, to, values }, x) => {
+const clampSingle = ({ type, Algebra: M, from, to, values }, x) => {
 	switch (type) {
-		case 'real': { return clampNumber(x, from, to) }
-		case 'integer': { return clampNumber(x, Math.ceil(from), Math.floor(to)) }
+		case 'real': { return M.min(M.max(x, from), to) }
+		case 'integer': { return M.min(M.max(x, M.ceil(from)), M.floor(to)) }
 		case 'ordinal': { return clampNumber(x, 0, values.length) }
 		case 'nominal': { return x }
 		default: throw new Error("unknown type")

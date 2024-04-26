@@ -13,6 +13,8 @@
     "./get-half-ranges": "./src/get-half-ranges.js",
     "./contains": "./src/contains.js",
     "./make-reals-finite": "./src/make-reals-finite.js",
+    "./make-ordinals-nominals": "./src/make-ordinals-nominals.js",
+    "./make-ordinals-integers": "./src/make-ordinals-integers.js",
     "./get-midpoint": "./src/get-midpoint.js",
     "./get-random": "./src/get-random.js"
   },
@@ -21,6 +23,7 @@
     "update-exports": "node ./scripts/update-exports.mjs"
   },
   "dependencies": {
+    "@kmamal/numbers": "^0.0.4",
     "@kmamal/util": "^0.2.6"
   },
   "devDependencies": {

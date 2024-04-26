@@ -1,11 +1,9 @@
 
-const _inBounds = (x, from, to) => from <= x && x <= to
-
-const containsSingle = ({ type, from, to, values }, x) => {
+const containsSingle = ({ type, Algebra: M, from, to, values }, x) => {
 	switch (type) {
-		case 'real': { return _inBounds(x, from, to) }
-		case 'integer': { return _inBounds(x, from, to) && Math.floor(x) === x }
-		case 'ordinal': { return _inBounds(x, 0, values.length) }
+		case 'real': { return M.lte(from, x) && M.lte(x, to) }
+		case 'integer': { return M.lte(from, x) && M.lte(x, to) && M.eq(M.floor(x), x) }
+		case 'ordinal': { return 0 <= x && x <= values.length }
 		case 'nominal': { return values.contains(x) }
 		default: throw new Error("unknown type")
 	}
