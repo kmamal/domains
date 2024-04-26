@@ -3,17 +3,16 @@ const { forEach } = require('@kmamal/util/array/for-each')
 
 
 const makeVariableFinite = (variable) => {
-	if (variable.Algebra?.__info.name !== 'js') { return { ...variable } }
+	if (variable.Algebra && variable.Algebra.__info.name !== 'js') { return { ...variable } }
 	return {
-		type: variable.type,
-		Algebra: variable.Algebra,
+		...variable,
 		from: Math.max(-Number.MAX_VALUE, variable.from),
 		to: Math.min(Number.MAX_VALUE, variable.to),
 	}
 }
 
 const makeVariableFinite$$$ = (variable) => {
-	if (variable.Algebra?.__info.name !== 'js') { return variable }
+	if (variable.Algebra && variable.Algebra.__info.name !== 'js') { return variable }
 	variable.from = Math.max(-Number.MAX_VALUE, variable.from)
 	variable.to = Math.min(Number.MAX_VALUE, variable.to)
 	return variable
@@ -30,7 +29,7 @@ makeDomainFinite.$$$ = makeDomainFinite$$$
 
 
 const restoreValueInfinity = (variable, x) => {
-	if (variable.Algebra?.__info.name !== 'js') { return x }
+	if (variable.Algebra && variable.Algebra.__info.name !== 'js') { return x }
 	if (x === -Number.MAX_VALUE && variable.from === -Infinity) { return -Infinity }
 	if (x === Number.MAX_VALUE && variable.to === Infinity) { return Infinity }
 	return x

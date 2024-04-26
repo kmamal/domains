@@ -6,15 +6,17 @@ const mapTo = map.to
 const getMidpointSingle = ({ type, Algebra: M, from, to, values }) => {
 	switch (type) {
 		case 'real': {
+			if (!M) { return from / 2 + to / 2 }
 			const TWO = M.fromNumber(2)
 			return M.add(M.div(from, TWO), M.div(to, TWO))
 		}
 		case 'integer': {
+			if (!M) { return Math.floor(from / 2 + to / 2) }
 			const TWO = M.fromNumber(2)
 			return Math.floor(M.add(M.div(from, TWO), M.div(to, TWO)))
 		}
-		case 'ordinal': return Math.floor(values.length / 2)
-		case 'nominal': return values[0]
+		case 'ordinal': { return Math.floor(values.length / 2) }
+		case 'nominal': { return values[0] }
 		default: throw new Error("unknown type")
 	}
 }

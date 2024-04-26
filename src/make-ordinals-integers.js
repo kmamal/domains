@@ -1,13 +1,11 @@
 const { map } = require('@kmamal/util/array/map')
 const { forEach } = require('@kmamal/util/array/for-each')
-const M = require('@kmamal/numbers/js')
 
 
 const makeVariableInteger = (variable) => {
 	if (variable.type !== 'ordinal') { return { ...variable } }
 	return {
 		type: 'integer',
-		Algebra: M,
 		from: 0,
 		to: variable.values.length - 1,
 	}
@@ -16,7 +14,6 @@ const makeVariableInteger = (variable) => {
 const makeVariableInteger$$$ = (variable) => {
 	if (variable.type !== 'ordinal') { return variable }
 	variable.type = 'integer'
-	variable.Algebra = M
 	variable.from = 0
 	variable.to = variable.values.length - 1
 	delete variable.values

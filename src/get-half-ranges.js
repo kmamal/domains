@@ -6,10 +6,12 @@ const mapTo = map.to
 const getHalfRangeSingle = ({ type, Algebra: M, from, to, values }) => {
 	switch (type) {
 		case 'real': {
+			if (!M) { return to / 2 - from / 2 }
 			const TWO = M.fromNumber(2)
 			return M.sub(M.div(to, TWO), M.div(from, TWO))
 		}
 		case 'integer': {
+			if (!M) { return Math.floor(to / 2 - from / 2) }
 			const TWO = M.fromNumber(2)
 			return Math.floor(M.sub(M.div(to, TWO), M.div(from, TWO)))
 		}
