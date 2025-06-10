@@ -15,6 +15,7 @@
     "./make-reals-finite": "./src/make-reals-finite.js",
     "./make-ordinals-nominals": "./src/make-ordinals-nominals.js",
     "./make-ordinals-integers": "./src/make-ordinals-integers.js",
+    "./make-nominals-one-hot": "./src/make-nominals-one-hot.js",
     "./get-midpoint": "./src/get-midpoint.js",
     "./get-random": "./src/get-random.js"
   },

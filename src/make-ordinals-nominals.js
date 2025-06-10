@@ -25,6 +25,7 @@ const makeDomainNominals$$$ = (domain) => forEach(domain, makeVariableNominal$$$
 
 makeDomainNominals.$$$ = makeDomainNominals$$$
 
+
 const restoreValueOrdinal = (variable, x) => {
 	if (variable.type !== 'ordinal') { return x }
 	return variable.values[x]
